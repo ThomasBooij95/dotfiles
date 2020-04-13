@@ -20,7 +20,7 @@ Plugin 'tomtom/tcomment_vim' " Comment toggler
 Plugin 'easymotion/vim-easymotion' " Easy navigation through page
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
