@@ -1,6 +1,5 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -35,12 +34,13 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 "
 "--------------------- MY SETTINGS--------------------------------
+set updatetime=100
 syntax on
 set termguicolors
 colorscheme gruvbox
 set bg=dark
 set autoindent
-" set filetypeindent on " Enable indentation rules that are file-type specific." 
+" set filetypeindent on " Enable indentation rules that are file-type specific. 
 set shiftround " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
 set shiftwidth=4 " When shifting, indent using four spaces.
 set smarttab " Insert “tabstop” number of spaces when the “tab” key is pressed.
@@ -91,8 +91,10 @@ set nrformats-=octal " Interpret octal as decimal when incrementing numbers.
 " set shell " The shell used to execute commands.
 set spell " Enable spellchecking.
 set wildignore+=.pyc,.swp " Ignore files matching these patterns when opening files based on a glob pattern.
-
+let g:gitgutter_async=0 
 " Mappings
 inoremap jh <Esc>
-
+nmap \t :GitGutterLineHighlightsToggle <Enter>
 " does this add the git gutter?
+" And this line?
+"
