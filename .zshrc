@@ -97,6 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc" 
+alias devfolder="cd '/media/thomas/SSD/Users/Thomas Booij/Dev'"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then

@@ -77,6 +77,10 @@ set showcmd " Show command
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
 let g:indent_guides_enable_on_vim_startup = 1
+
+" Start Nerdtree when vim is opened without a filename
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Code Folding
 
 set foldmethod=indent " Fold based on indention levels.
@@ -102,6 +106,3 @@ let g:gitgutter_async=0
 " Mappings
 inoremap jh <Esc>
 nmap \t :GitGutterLineHighlightsToggle <Enter>
-" does this add the git gutter?
-" And this line?
-"
