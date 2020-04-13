@@ -15,19 +15,11 @@ Plugin 'VundleVim/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
+Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file and buffer finder
+Plugin 'itchyny/lightline.vim' "status bar improvement
+Plugin 'tomtom/tcomment_vim' " Comment toggler
+Plugin 'easymotion/vim-easymotion' " Easy navigation through page
+Plugin 'airblade/vim-gitgutter'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,9 +33,8 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-
+"
+"--------------------- MY SETTINGS--------------------------------
 syntax on
 set termguicolors
 colorscheme gruvbox
@@ -73,10 +64,11 @@ set wrap " Enable line wrapping.
 
 " UI options
 
-" set laststatus=2 " Always display the status bar.
+set laststatus=2 " Always display the status bar.
 set wildmenu " Display command line’s tab complete options as a menu.
 set relativenumber " Show line number on the current line and relative numbers on all other lines.
 set title " Set the window’s title, reflecting the file currently being edited.
+set showcmd " Show command
 
 " Code Folding
 
@@ -102,3 +94,5 @@ set wildignore+=.pyc,.swp " Ignore files matching these patterns when opening fi
 
 " Mappings
 inoremap jh <Esc>
+
+" does this add the git gutter?
