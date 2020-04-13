@@ -1,3 +1,4 @@
+" Hello world
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -19,6 +20,8 @@ Plugin 'itchyny/lightline.vim' "status bar improvement
 Plugin 'tomtom/tcomment_vim' " Comment toggler
 Plugin 'easymotion/vim-easymotion' " Easy navigation through page
 Plugin 'airblade/vim-gitgutter'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Valloric/YouCompleteMe'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -69,7 +72,10 @@ set wildmenu " Display command line’s tab complete options as a menu.
 set relativenumber " Show line number on the current line and relative numbers on all other lines.
 set title " Set the window’s title, reflecting the file currently being edited.
 set showcmd " Show command
-
+" setting for vim-indent-guides
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+let g:indent_guides_enable_on_vim_startup = 1
 " Code Folding
 
 set foldmethod=indent " Fold based on indention levels.
