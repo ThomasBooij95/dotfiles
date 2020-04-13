@@ -1,4 +1,3 @@
-" Hello world
 set nocompatible              " be iMproved, required
 filetype off                  " required
 " set the runtime path to include Vundle and initialize
@@ -22,6 +21,8 @@ Plugin 'easymotion/vim-easymotion' " Easy navigation through page
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'preservim/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
