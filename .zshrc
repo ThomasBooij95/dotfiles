@@ -98,6 +98,8 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc" 
 alias devfolder="cd '/media/thomas/SSD/Users/Thomas Booij/Dev'"
+alias djsource="source ~/dev/DailyJoke/startup.sh"
+alias djrun="source ~/dev/DailyJoke/startupServer.sh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then

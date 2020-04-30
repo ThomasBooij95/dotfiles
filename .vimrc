@@ -12,6 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
+Plugin 'vim-syntastic/syntastic' 
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file and buffer finder
@@ -20,9 +21,10 @@ Plugin 'tomtom/tcomment_vim' " Comment toggler
 Plugin 'easymotion/vim-easymotion' " Easy navigation through page
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'preservim/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'tpope/vim-surround' 
+"Plugin 'Xuyuanp/nerdtree-git-plugin'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -83,8 +85,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " Code Folding
 
-set foldmethod=indent " Fold based on indention levels.
-set foldnestmax=3 " Only fold up to three nested levels.
+" set foldmethod=indent " Fold based on indention levels.
+" set foldnestmax=3 " Only fold up to three nested levels.
 
 " Misc. Options
 
@@ -106,3 +108,22 @@ let g:gitgutter_async=0
 " Mappings
 inoremap jh <Esc>
 nmap \t :GitGutterLineHighlightsToggle <Enter>
+map <C-v> "+P
+map <Return> o<Esc>
+vnoremap <C-c> "*y :let @+=@*<CR>
+set clipboard=unnamed
+nmap <F6> :NERDTreeToggle<CR>
+nmap <F7> :CtrlP .<Return>
+
+" syntastic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" make markdown bold surround possible
+let g:surround_{char2nr('m')} = "\1Surround: \1\r\1\1"
+let g:surround_{char2nr('b')} = "**\r**"
