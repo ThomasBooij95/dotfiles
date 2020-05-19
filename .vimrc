@@ -1,24 +1,13 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
 Plugin 'vim-utils/vim-man' 
 Plugin 'jremmen/vim-ripgrep' 
-Plugin 'jlanzarotta/bufexplorer'
 Plugin 'vim-syntastic/syntastic' 
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
-" Plugin 'ctrlpvim/ctrlp.vim' " Fuzzy file and buffer finder
 Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plugin 'junegunn/fzf.vim'
 Plugin 'itchyny/lightline.vim' "status bar improvement
@@ -31,21 +20,8 @@ Plugin 'preservim/nerdtree'
 Plugin 'tpope/vim-surround' 
 Plugin 'tpope/vim-unimpaired'
 Plugin 'mbbill/undotree'
-"Plugin 'Xuyuanp/nerdtree-git-plugin'
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-"
 "--------------------- MY SETTINGS--------------------------------
 let mapleader = " "
 set updatetime=100
@@ -55,7 +31,6 @@ let g:gruvbox_italic = 1
 
 set bg=dark
 set autoindent
-" set filetypeindent on " Enable indentation rules that are file-type specific. 
 set shiftround " When shifting lines, round the indentation to the nearest multiple of “shiftwidth.”
 set shiftwidth=4 " When shifting, indent using four spaces.
 set smarttab " Insert “tabstop” number of spaces when the “tab” key is pressed.
@@ -69,26 +44,20 @@ set lazyredraw " Don’t update screen during macro and script execution.
 set smartindent
 set colorcolumn=80
 highlight Colorcolumn ctermbg=0 guibg=lightgrey
+set mouse=a
 
 " Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-" Quicker window movement
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-l> <C-w>l
-
+" nnoremap <Left> :echoe "Use h"<CR>
+" nnoremap <Right> :echoe "Use l"<CR>
+" nnoremap <Up> :echoe "Use k"<CR>
+" nnoremap <Down> :echoe "Use j"<CR>
 
 " Text rendering options
 
 set display+=lastline " Always try to show a paragraph’s last line.
 set encoding=utf-8 " Use an encoding that supports unicode.
 set linebreak " Avoid wrapping a line in the middle of a word.
-set scrolloff=1 " The number of screen lines to keep above and below the cursor.
+set scrolloff=5 " The number of screen lines to keep above and below the cursor.
 set sidescrolloff=5 " The number of screen columns to keep to the left and right of the cursor.
 syntax enable " Enable syntax highlighting.
 set wrap " Enable line wrapping.
@@ -98,6 +67,7 @@ set wrap " Enable line wrapping.
 set laststatus=2 " Always display the status bar.
 set wildmenu " Display command line’s tab complete options as a menu.
 set relativenumber " Show line number on the current line and relative numbers on all other lines.
+set number
 set title " Set the window’s title, reflecting the file currently being edited.
 set showcmd " Show command
 " setting for vim-indent-guides
@@ -122,6 +92,7 @@ nnoremap <Leader>O O<Esc>
 nnoremap <Leader><Leader> <C-^>
 nnoremap <Leader>gm :GitGutterNextHunk<Enter>
 nnoremap <Leader>gn :GitGutterPrevHunk<Enter>
+nnoremap <leader>gc :Git<bar> :tabnew %<CR>
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -138,7 +109,6 @@ nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
 nnoremap <leader>bd :<c-u>up <bar> %bd <bar> e#<cr>
 
 set confirm " Display a confirmation dialog when closing an unsaved file.
-set dir=~/.cache/vim " Directory to store swap files.
 set formatoptions+=j " Delete comment characters when joining lines.
 set hidden " Hide files in the background instead of closing them.
 set history=1000 " Increase the undo limit.
@@ -146,9 +116,8 @@ set nomodeline " Ignore file’s mode lines; use vimrc configurations instead.
 set noswapfile " Disable swap files.
 set nrformats-=octal " Interpret octal as decimal when incrementing numbers.
 " Splits
-set splitbelow
-set splitright
-
+" set splitbelow
+" set splitright
 
 " BufExplorer options. 
 nnoremap <silent> <M-F12> :BufExplorer<CR>
@@ -169,17 +138,18 @@ set nrformats-=octal " Interpret octal as decimal when incrementing numbers.
 set spell " Enable spellchecking.
 set wildignore+=.pyc,.swp " Ignore files matching these patterns when opening files based on a glob pattern.
 let g:gitgutter_async=0 
+
 " Mappings
 inoremap jh <Esc>
 nmap \t :GitGutterLineHighlightsToggle <Enter>
-" map <C-v> "+P
+nnoremap <C-v> "+P
+nnoremap <C-z> u
 map <Return> o<Esc>
 vnoremap <C-c> "*y :let @+=@*<CR>
 set clipboard=unnamed
 nnoremap <F5> :buffers<CR>:buffer<Space>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :CtrlP .<Return>
-
 set wildchar=<Tab> wildmenu wildmode=full
 
 " syntastic recommended settings
@@ -235,3 +205,4 @@ nnoremap <silent> <C-o> :Buffers<CR>
 
 colorscheme gruvbox
 "Open vimrc in vertical split
+
