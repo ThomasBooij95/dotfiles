@@ -33,7 +33,7 @@ ZSH_THEME="agnoster"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
+DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -68,7 +68,12 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+	git
+	zsh-autosuggestions
+
+
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,6 +105,9 @@ alias vimconfig="vim ~/.vimrc"
 alias devfolder="cd '/media/thomas/SSD/Users/Thomas Booij/Dev'"
 alias djsource="source ~/dev/DailyJoke/startup.sh"
 alias djrun="source ~/dev/DailyJoke/startupServer.sh"
+alias patatsource="source ~/dev/patat/startup.sh"
+alias patatrun="source ~/dev/patat/startupServer.sh"
+alias patatssh="source ~/dev/patat/SSH.sh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 prompt_context() {
   if [[ "$USER" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
@@ -108,3 +116,5 @@ prompt_context() {
 }
 export EDITOR=/bin/vim
 export VISUAL=/bin/vim
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
